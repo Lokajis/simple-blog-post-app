@@ -10,17 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 let postSave = [];
 
-/*function deleteElements () {
-    for (let no=0 ; no < postSave.length; no++ ){
-
-const buttonId = document.getElementById("button"+no);
-
- }
-
-buttonId.addEventListener('click', () => {
-console.log(this.id);
-});
-*/
 
 function createBlog(postNow) {
     postSave.push(postNow);
