@@ -1,0 +1,173 @@
+
+
+ /* first page grid*/
+.grid-container {
+    padding-top: 10vh;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    width: 80%;
+    justify-content: space-around;
+    /* align-items: center;*/
+    gap: 20px;
+    ;
+}
+@media screen and (max-width: 1250px) {
+     .grid-container {
+        padding-top: 10vh;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        width: 80%;
+        justify-content: space-around;
+        /* align-items: center;*/
+        gap: 20px;
+        ;}
+}
+@media screen and (min-width: 1251px) {
+    .grid-container {
+       padding-top: 10vh;
+
+       display: grid;
+       grid-template-columns:1fr 1fr 1fr;
+       grid-template-rows:  1fr;
+       width: 90%;
+       justify-content: space-around;
+       /* align-items: center;*/
+       gap: 35px;
+       ;}
+}
+
+@media screen and (min-width: 1500px) {
+    .grid-container {
+       padding-top: 10vh;
+
+       display: grid;
+       grid-template-columns:1fr 1fr 1fr;
+       grid-template-rows:  1fr;
+       width: 90%;
+       justify-content: space-around;
+       /* align-items: center;*/
+       gap: 20px;
+       ;}
+}
+
+
+ /* the container that centers our grid*/
+.containerF {
+
+margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+}
+
+
+ /* The flexBox in the h1*/
+.flfex-container {
+
+    display: flex;
+    justify-content: center;
+    padding-top: 1vh;
+}
+
+ /* The paragraph inside the grid*/
+.gridP {
+    font-size: 3rem;
+}
+
+ /* the flex direction column to set the objects in the grid vertical*/
+.flexRow {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+
+}
+
+ /* the input */
+.member {
+    height: 50px;
+}
+
+ /* the flex direction column to set the objects in the flexBlog vertical*/
+.flexBlog{
+display: flex;
+flex-direction: column;
+height: 20vh;
+width: 30%;
+align-items: center;
+padding-top: 5vh;
+}
+/* the paragraphs in the blog*/
+.paragrapgBlog{
+
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+}
+
+.deletButton {
+
+    border: none;
+    color:  #F2E9E9;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+   /*margin: 4px 2px;*/
+    cursor: pointer;
+  }
+
+/* style part*/
+
+body{/* background-color: #F2E9E9; */
+    font-family: 'Dancing Script', cursive;
+font-family: 'Junge', cursive;
+font-family: 'Libre Baskerville', serif;
+font-family: 'Playfair Display', serif;
+}
+
+h1{font-size: 50px;
+padding-top: 5vh;}
+
+.pStyle{
+    text-align:justify;
+}
+
+.bStyle{
+    border-radius: 10%;
+ background-color: #0D0409;
+ color: #F2E9E9;
+
+}
+
+.buttonTextStyling{
+    color: #F2E9E9;
+}
+
+.hrStyle{
+    width: 80%;
+    height: 5px;
+    background-color: #D9D0D0;
+
+}
+.insertBoxStyle{
+    border-radius: 5%;
+
+}
+
+
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+
+.grid-item:hover {
+    transform: scale(1.1);
+}
+
