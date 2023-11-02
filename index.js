@@ -9,24 +9,18 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let postSave = [];
-
+let postNow;
 
 function createBlog(postNow) {
     postSave.push(postNow);
+
 }
 
-app.get("/", (req, res) => {
-    res.render("index.ejs");
-});
 
-app.post("/submit", (req, res) => {
-    const postNow = req.body["pOst"];
-    createBlog(postNow);
+
+app.get("/", (req, res) => {
     res.render("index.ejs", { postingNow: postNow });
 });
-
-
-
 
 app.get("/secondPage.ejs", (req, res) => {
     console.log(postSave);
@@ -34,18 +28,20 @@ app.get("/secondPage.ejs", (req, res) => {
     res.render("secondPage.ejs", { postSave });
 });
 
+app.post("/submit", (req, res) => {
+    const postNow = req.body["pOst"];
+    createBlog(postNow);
+    res.render("index.ejs", { postNow: postNow });
+});
+
+
+
 app.post("/delete", (req, res) => {
     const indexToDelete = req.body.index;
     if (indexToDelete >= 0 && indexToDelete < postSave.length) {
         postSave.splice(indexToDelete, 1);
     }
     res.redirect("/secondPage.ejs");
-});
-
-
-app.get("/index.ejs", (req, res) => {
-
-    res.render("index.ejs");
 });
 
 
