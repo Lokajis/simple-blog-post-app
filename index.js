@@ -9,17 +9,18 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let postSave = [];
-let postNow;
 
-function createBlog(postNow) {
-    postSave.push(postNow);
 
-}
+
 
 
 
 app.get("/", (req, res) => {
-    res.render("index.ejs", { postingNow: postNow });
+
+    const newPost = {
+        post: req.body.pOst,
+    }
+    res.render("index.ejs", { postingNow: newPost });
 });
 
 app.get("/secondPage.ejs", (req, res) => {
@@ -28,21 +29,31 @@ app.get("/secondPage.ejs", (req, res) => {
     res.render("secondPage.ejs", { postSave });
 });
 
-app.post("/submit", (req, res) => {
-    const postNow = req.body["pOst"];
-    createBlog(postNow);
-    res.render("index.ejs", { postNow: postNow });
-});
 
+app.get("/delete", (req, res) => {
 
+    const id = parseInt(req.body.id);
+    const index = postSave.find((post) => post.id === id);
 
-app.post("/delete", (req, res) => {
-    const indexToDelete = req.body.index;
-    if (indexToDelete >= 0 && indexToDelete < postSave.length) {
-        postSave.splice(indexToDelete, 1);
-    }
+    console.log(index);
+    postSave.splice(index, 1);
     res.redirect("/secondPage.ejs");
 });
+
+app.post("/submit", (req, res) => {
+    let lastId = postSave.length;
+    const newId = lastId + 1;
+
+    const newPost = {
+        post: req.body.pOst,
+        id: newId
+    }
+    
+    postSave.push(newPost);
+    res.render("index.ejs", { postNow: newPost });
+});
+
+
 
 
 app.listen(port, () => {
